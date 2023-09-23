@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200&display=swap');
+
+
+body {
+    background-color: rgb(254, 250, 246);
+}
+
+#game-container {
+    width: 90vw;
+    height: 80vh;
+    margin-left: 5vw;
+    margin-top: 15vh;
+    position: relative;
+    border: 1px solid black;
+}
+#block {
+    width: 200px;
+    height: 150px;
+    /* background-color: blue; */
+    background-image: url("./../static/dog.png");
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+}
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}

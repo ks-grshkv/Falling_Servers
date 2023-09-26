@@ -6,11 +6,27 @@
     <script src="./js/main_logic.js" defer></script>
 </head>
 <body>
-    <h1>Block Game</h1>
-    <p>Use arrow keys to move the block and catch falling circles to earn points.</p>
-    <p id="results">Score:</p>
-    <div id="game-container">
-        <div id="block"></div>
+    
+    <div id="container">
+        <audio controls autoplay>
+            <source src="music.mp3" type="audio/mpeg">
+          
+          
+          </audio>
+        <div id="flexbox">
+            <div>
+                <h1>Crashing servers</h1>
+                <p>Oh no! These servers are about to crash into the ground. 
+                    Help Lil Doggo save them and not get her ass fired!</p>
+            </div>
+            <div id="results-box"><p id="results">Score:</p></div>
+            
+        </div>
+        <div id="game-container">
+            <div id="block"> 
+                <img id="dog_image" src="./static/dog.png" />
+            </div>
+        </div>
     </div>
 
 </body>

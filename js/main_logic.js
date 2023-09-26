@@ -1,4 +1,5 @@
     const block = document.getElementById('block');
+    const dog_image = document.getElementById('dog_image');
     const results = document.getElementById('results');
         const gameContainer = document.getElementById('game-container');
         let score = 0;
@@ -6,10 +7,14 @@
         function moveBlock(event) {
             const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
             if (event.key === 'ArrowLeft' && blockLeft > 0) {
-                block.style.left = blockLeft - 10 + 'px';
+                dog_image.src = '../static/dog.png'
+                block.style.left = blockLeft - 25 + 'px';
+                // block.setAttribute('background-image', 'url("./static/dog.png");')
             }
             if (event.key === 'ArrowRight' && blockLeft + 50 < gameContainer.clientWidth) {
-                block.style.left = blockLeft + 10 + 'px';
+                block.style.left = blockLeft + 25 + 'px';
+                dog_image.src = '../static/dogright.png'
+                // block.setAttribute('background-image', 'url("./static/dogright.png");')
             }
         }
 
@@ -29,7 +34,7 @@
                     console.log(score)
                 } 
 
-                if (circleTop + 20 >= gameContainer.clientHeight || isCircleOnBlock(circle, block)) {
+                if (circleTop + circle.clientHeight >= gameContainer.clientHeight || isCircleOnBlock(circle, block)) {
                     clearInterval(fallInterval);
                     gameContainer.removeChild(circle);
                     // circle.style.top = circleTop + 5 + 'px';

@@ -1,19 +1,47 @@
-    const block = document.getElementById('block');
-    const dog_image = document.getElementById('dog_image');
-    const results = document.getElementById('results');
-        const gameContainer = document.getElementById('game-container');
-        let score = 0;
+const block = document.getElementById('block');
+const dog_image = document.getElementById('dog_image');
+const results = document.getElementById('results');
+
+
+var tID; //we will use this variable to clear the setInterval()
+function animateScript() {
+    const dif = 149
+    var    position = dif; //start position for the image slicer
+    const  interval = 100; //100 ms of interval for the setInterval()
+    tID = setInterval ( () => {
+    document.getElementById("dog_image").style.backgroundPosition = `-${position}px 0px`; 
+    //we use the ES6 template literal to insert the variable "position"
+    if (position < 306)
+    { position = position + dif;
+        console.log('AAAA')}
+    //we increment the position by 256 each time
+    else
+    { position = dif;
+        console.log('BBB') }
+    // console.log('AAAA')
+    //reset the position to 256px, once position exceeds 1536px
+    }
+    
+    , interval ); //end of setInterval
+} //end of animateScript()
+
+animateScript()
+
+const gameContainer = document.getElementById('game-container');
+let score = 0;
 
         function moveBlock(event) {
             const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
             if (event.key === 'ArrowLeft' && blockLeft > 0) {
-                dog_image.src = '../static/dog.png'
+                // dog_image.src = '../static/dog.png'
+                // dog_image.setAttribute('background-image', 'url("./static/dog.png");')
                 block.style.left = blockLeft - 25 + 'px';
-                // block.setAttribute('background-image', 'url("./static/dog.png");')
+                
             }
             if (event.key === 'ArrowRight' && blockLeft + 50 < gameContainer.clientWidth) {
                 block.style.left = blockLeft + 25 + 'px';
-                dog_image.src = '../static/dogright.png'
+                // dog_image.setAttribute('background-image', 'url("./static/dogright.png");')
+                // dog_image.src = '../static/dogright.png'
                 // block.setAttribute('background-image', 'url("./static/dogright.png");')
             }
         }

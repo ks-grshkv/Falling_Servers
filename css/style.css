@@ -2,16 +2,17 @@
 
 
 body {
-    background-color: rgb(254, 250, 246);
+    background-color: rgb(0, 0, 0);
     font-family: 'Poppins';
+    color: aliceblue;
 }
 
 img{
-    width: inherit;
+    /* width: 150% */
 }
 
 #container {
-    margin-left: 5vw;
+    /* margin-left: 5vw; */
     /* justify-content: center; */
     
 }
@@ -29,28 +30,40 @@ img{
     font-weight: 900;
 }
 #game-container {
-    width: 90vw;
-    height: 80vh;
+    width: 50rem;
+    /* width: 90vw; */
+    height: 70vh;
     /* margin-left: 5vw;
     margin-top: 15vh; */
     position: relative;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
+    margin-left: calc((100vw - 50rem)/2);
 }
 #block {
-    width: 200px;
-    height: 150px;
+    /* width: 150px;
+    height: 110px; */
+    /* background-repeat: no-repeat; */
     /* background-color: blue; */
+    /* background-size: calc(200%); */
     /* background-image: url("./../static/dog.png"); */
-    background-size: contain;
     position: absolute;
     bottom: 0;
 }
+
+#dog_image {
+    width: 150px;
+    height: 110px;
+    background-size: calc(200%);
+    background-image: url("./../static/dog.png");
+
+}
 .circle {
-    width: 70px;
+    width: 45px;
     height: 85px;
     /* background-color: red; */
     background-image: url("./../static/server.png");
     background-size: contain;
+    background-repeat: no-repeat;
     /* border-radius: 50%; */
     position: absolute;
 }

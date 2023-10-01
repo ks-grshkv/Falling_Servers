@@ -5,6 +5,9 @@ var anim_trigger = false
 var anim_trigger_int = 0;
 const fail_alert = document.getElementById('fail_alert')
 var fail_status = false
+const fail_msg = document.getElementById('fail_msg')
+
+
 
 var tID; //we will use this variable to clear the setInterval()
 function animateScript(flag) {
@@ -57,8 +60,10 @@ onkeyup = (event) => {
 
 const gameContainer = document.getElementById('game-container');
 let score = 0;
+results.textContent = `Score: ${score}`;
 
         function moveBlock(event) {
+            if (fail_status) {return}
             const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
             if (event.key === 'ArrowLeft' && blockLeft > 0) {
                 // dog_image.src = '../static/dog.png'
@@ -76,7 +81,10 @@ let score = 0;
         }
 
         function createCircle() {
-            if (fail_status) {clearInterval(fallInterval)}
+            if (fail_status) {
+                return
+                clearInterval(fallInterval)
+            }
             const circle = document.createElement('div');
             circle.classList.add('circle');
             circle.style.left = Math.random() * (gameContainer.clientWidth - 60) + 'px';
@@ -102,11 +110,12 @@ let score = 0;
                     
                     // circle.style.top = circleTop + 5 + 'px';
                 }
-                if (circleTop + circle.clientHeight >= gameContainer.clientHeight){
+                if (circleTop + circle.clientHeight+10 >= gameContainer.clientHeight){
                     console.log('FAIL')
                     clearInterval(tID)
                     fail_alert.style.display = "block"
                     fail_status = true
+                    fail_msg.style.display = "block"
                 }
                 circle.style.top = circleTop + 5 + 'px';
                     

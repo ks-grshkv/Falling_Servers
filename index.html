@@ -28,9 +28,11 @@
         
         <div id="game-container">
             <div id="fail_alert">
-                Oops! A server has crashed. You're fired and your boss really hates dogs now.
+                <p>Oops! A server has crashed. You're fired and your boss really hates dogs now.</p>
+                <button id="btn_retry" onclick="location.reload()">Retry</button>
             </div>
             <div id="block"> 
+                <p id="fail_msg">*resorts to webcam instead*</p>
                 <p id="dog_image"> </p>
                 <!-- <img id="dog_image" src="./static/dog.png" /> -->
             </div>

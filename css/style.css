@@ -15,20 +15,27 @@ button {
     border: 0;
 }
 
-img{
-    /* width: 150% */
+
+#lives {
+    display: flex;
+    margin: 1rem;
 }
 
-#container {
-    /* margin-left: 5vw; */
-    /* justify-content: center; */
-    
+.life {
+    margin: 0.7rem;
+    width: 1.5rem;
 }
+
 #flexbox {
-    align-items: center;
+    width: 50rem;
+    align-items: baseline;
     display: flex;
     margin-left: calc((100vw - 50rem)/2);
     justify-content: space-between;
+}
+
+#intro {
+    width: 60%;
 }
 
 #fail_msg{
@@ -37,30 +44,20 @@ img{
 
 #results-box {
     background-color: black;
-    margin-right: 65px;
-    color: rgb(223, 223, 223);
-    padding: 1rem;
+    margin-left: 1rem;
+    color: rgb(89, 240, 119);
     height: fit-content;
     font-weight: 900;
 }
 #game-container {
     width: 50rem;
-    /* width: 90vw; */
     height: 70vh;
-    /* margin-left: 5vw;
-    margin-top: 15vh; */
     position: relative;
     border: 1px solid rgb(255, 255, 255);
     border-style: dashed;
     margin-left: calc((100vw - 50rem)/2);
 }
 #block {
-    /* width: 150px;
-    height: 110px; */
-    /* background-repeat: no-repeat; */
-    /* background-color: blue; */
-    /* background-size: calc(200%); */
-    /* background-image: url("./../static/dog.png"); */
     position: absolute;
     bottom: 0;
 }
@@ -84,11 +81,9 @@ img{
 .circle {
     width: 45px;
     height: 85px;
-    /* background-color: red; */
     background-image: url("./../static/server.png");
     background-size: contain;
     background-repeat: no-repeat;
-    /* border-radius: 50%; */
     position: absolute;
 }
 

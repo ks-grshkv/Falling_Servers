@@ -17,16 +17,21 @@
           
           </audio>
         <div id="flexbox">
-            <div>
+            <div id="intro">
                 <h1>Crashing servers</h1>
                 <p>Oh no! These servers are about to crash into the ground. 
-                    Help Lil Doggo save them and not get her ass fired!</p>
+                    Help Doggo Junior save them!</p>
             </div>
             <div id="results-box"><p id="results">Score:</p></div>
             
         </div>
         
         <div id="game-container">
+            <div id="lives">
+                <img class="life" id="life0" src="./static/heart.png"></img>
+                <img class="life" id="life1" src="./static/heart.png"></img>
+                <img class="life" id="life2" src="./static/heart.png"></img>
+            </div>
             <div id="fail_alert">
                 <p>Oops! A server has crashed. You're fired and your boss really hates dogs now.</p>
                 <button id="btn_retry" onclick="location.reload()">Retry</button>

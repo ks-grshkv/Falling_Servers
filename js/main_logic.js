@@ -46,12 +46,12 @@ function moveBlock(event) {
     if (fail_status) {return}
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
     if (event.key === 'ArrowLeft' && blockLeft > 0) {
-        dog_image.style.backgroundImage = 'url(../static/dog.png)'
+        dog_image.style.backgroundImage = 'url(./static/dog.png)'
         block.style.left = blockLeft - 25 + 'px';
     }
     if (event.key === 'ArrowRight' && blockLeft + 165 < gameContainer.clientWidth) {
         block.style.left = blockLeft + 25 + 'px';
-        dog_image.style.backgroundImage = 'url(../static/dogright.png)';
+        dog_image.style.backgroundImage = 'url(./static/dogright.png)';
     }
 }
 

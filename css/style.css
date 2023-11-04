@@ -91,3 +91,7 @@ audio {
     visibility: hidden;
     height: 0;
 }
+
+a {
+    color: rgb(89, 240, 119);
+}

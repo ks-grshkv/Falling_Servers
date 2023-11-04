@@ -10,11 +10,20 @@ body {
 }
 
 button {
-    background-color: rgb(0, 0, 0);
-    color: aliceblue;
+    background-color:  rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     border: 0;
+    padding: 0 1rem;
 }
 
+#button-controls {
+    margin-top: 1rem;
+}
+
+.btn-control {
+    background-color: rgb(89, 240, 119);
+    color: rgb(0, 0, 0);
+}
 
 #lives {
     display: flex;
@@ -26,7 +35,7 @@ button {
     width: 1.5rem;
 }
 
-#flexbox {
+.flexbox {
     width: 50rem;
     align-items: baseline;
     display: flex;

@@ -43,14 +43,19 @@ const gameContainer = document.getElementById('game-container');
 let score = 0;
 results.textContent = `Score: ${score}`;
 
-function moveBlock(event) {
+function keyPressed(event) {
+    moveBlock(event.key)
+}
+
+
+function moveBlock(direction) {
     if (fail_status) {return}
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
-    if (event.key === 'ArrowLeft' && blockLeft > 0) {
+    if (direction === 'ArrowLeft' && blockLeft > 0) {
         dog_image.style.backgroundImage = 'url(./static/dog.png)'
         block.style.left = blockLeft - 25 + 'px';
     }
-    if (event.key === 'ArrowRight' && blockLeft + 165 < gameContainer.clientWidth) {
+    if (direction === 'ArrowRight' && blockLeft + 165 < gameContainer.clientWidth) {
         block.style.left = blockLeft + 25 + 'px';
         dog_image.style.backgroundImage = 'url(./static/dogright.png)';
     }
@@ -65,12 +70,12 @@ function createCircle() {
     circle.style.left = Math.random() * (gameContainer.clientWidth - 60) + 'px';
     gameContainer.appendChild(circle);
 
-    console.log("createCircle")
+    // console.log("createCircle")
     const fallInterval = setInterval(() => {
-        console.log("fallInterval")
+        // console.log("fallInterval")
         const circleTop = parseInt(window.getComputedStyle(circle).getPropertyValue('top'));      
         if (isCircleOnBlock(circle, block) && !fail_status) {
-            console.log(fail_status)
+            // console.log(fail_status)
             score++;
             updateScore();
         } 
@@ -118,7 +123,7 @@ function createCircle() {
         }
 
 
-document.addEventListener('keydown', moveBlock);
+document.addEventListener('keydown', keyPressed);
 if (!fail_status) {
     main_int = setInterval(createCircle, 1000);
 } else {clearInterval(main_int)}

@@ -8,13 +8,14 @@ var fail_status = false
 var fail_count = 0
 const fail_msg = document.getElementById('fail_msg')
 const lives = document.getElementById('lives')
-const lifearray = [document.getElementById('life0'), document.getElementById('life1'), document.getElementById('life2')]
+const lifearray = [document.getElementById('life0'), document.getElementById('life1'), document.getElementById('life2'), document.getElementById('life3'), document.getElementById('life4')]
 var main_int;
-var tID; //we will use this variable to clear the setInterval()
+var tID;
+
 function animateScript(flag) {
     const dif = 149
-    var    position = dif;
-    const  interval = 100; //100 ms of interval for the setInterval()
+    var position = dif;
+    const interval = 100;
     if (!flag) {
         clearInterval(tID);
         return;
@@ -83,20 +84,17 @@ function createCircle() {
             clearInterval(fallInterval);
             gameContainer.removeChild(circle);
 
-            if (fail_count <= 2) {
+            if (fail_count <= 4) {
                 let curr_life = lifearray[fail_count]
 
                 curr_life.style.display="none"
                 fail_count++;
             }
-            if (fail_count > 2) {
+            if (fail_count > 4) {
                 fail_alert.style.display = "block"
                 fail_msg.style.display = "block"
                 clearInterval(tID)
                 fail_status = true;
-                // clearInterval(main_int)
-                // clearInterval(fallInterval)
-                // return
             }
             
             }
@@ -124,3 +122,4 @@ document.addEventListener('keydown', moveBlock);
 if (!fail_status) {
     main_int = setInterval(createCircle, 1000);
 } else {clearInterval(main_int)}
+

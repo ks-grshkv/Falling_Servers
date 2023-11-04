@@ -1,7 +1,7 @@
-# falling_servers
+# Falling Servers Game
 
 
-Minigame about a doggo that's trying to save the servers from crashing. 
+Game about a doggo that's trying to save the servers from crashing. 
 
 Give it a try:
 https://ks-grshkv.github.io/falling_servers/

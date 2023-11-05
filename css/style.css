@@ -112,7 +112,8 @@ button {
 
 audio {
     /* visibility: hidden; */
-    /* height: 0; */
+    height: 1.9rem;
+    width: 17rem;
     margin: 1rem;
 }
 

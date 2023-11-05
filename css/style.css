@@ -37,10 +37,18 @@ button {
 }
 
 .flexbox {
-    width: 50rem;
+    width: 90vw;
     align-items: baseline;
     display: flex;
-    margin-left: calc((100vw - 50rem)/2);
+    margin-left: calc((100vw - 90vw)/2);
+    justify-content: space-between;
+}
+
+.flexbtn {
+    /* width: 50rem; */
+    align-items: baseline;
+    display: flex;
+    /* margin-left: calc((100vw - 50rem)/2); */
     justify-content: space-between;
 }
 
@@ -59,13 +67,14 @@ button {
     height: fit-content;
     font-weight: 900;
 }
+
 #game-container {
-    width: 50rem;
-    height: 70vh;
+    width: 90vw;
+    height: 60vh;
     position: relative;
     border: 1px solid rgb(255, 255, 255);
     border-style: dashed;
-    margin-left: calc((100vw - 50rem)/2);
+    margin-left: calc((100vw - 90vw)/2);
 }
 #block {
     position: absolute;
@@ -110,5 +119,20 @@ a {
     
     #button-controls {
         visibility: hidden;
+    }
+    #game-container {
+        width: 50rem;
+        height: 70vh;
+        position: relative;
+        border: 1px solid rgb(255, 255, 255);
+        border-style: dashed;
+        margin-left: calc((100vw - 50rem)/2);
+    }
+    .flexbox {
+        width: 50rem;
+        align-items: baseline;
+        display: flex;
+        margin-left: calc((100vw - 50rem)/2);
+        justify-content: space-between;
     }
   }

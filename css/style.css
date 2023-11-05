@@ -133,16 +133,23 @@ a {
     }
     
     * {
+        font-size: small;
+    }
+    p {
         font-size: smaller;
     }
     .flexbox {
-        width: 90vw;
+        width: 99vw;
         align-items: baseline;
         display: flex;
         margin-left: calc((100vw - 90vw)/2);
         justify-content: space-between;
     }
 
+    audio {
+        visibility: hidden;
+        height: 0;
+    }
     
     #game-container {
         width: 90vw;

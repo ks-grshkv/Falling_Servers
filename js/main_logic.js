@@ -47,12 +47,14 @@ let score = 0;
 results.textContent = `Score: ${score}`;
 
 function keyPressed(event) {
-    speed = speed - 0.25;
+    
     moveBlock(event.key)
 }
 
 function moveBlock(direction) {
+
     if (fail_status) {return}
+    speed = speed - 0.25;
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
     if (direction === 'ArrowLeft' && blockLeft > 0) {
         dog_image.style.backgroundImage = 'url(./static/dog.png)';

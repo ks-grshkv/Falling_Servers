@@ -17,6 +17,7 @@ button {
 }
 
 #button-controls {
+    visibility: hidden;
     margin-top: 1rem;
 }
 
@@ -36,11 +37,13 @@ button {
     width: 1.5rem;
 }
 
+
+
 .flexbox {
-    width: 90vw;
+    width: 50rem;
     align-items: baseline;
     display: flex;
-    margin-left: calc((100vw - 90vw)/2);
+    margin-left: calc((100vw - 50rem)/2);
     justify-content: space-between;
 }
 
@@ -69,13 +72,14 @@ button {
 }
 
 #game-container {
-    width: 90vw;
-    height: 55vh;
+    width: 50rem;
+    height: 62vh;
     position: relative;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid rgb(19, 226, 0);
     border-style: dashed;
-    margin-left: calc((100vw - 90vw)/2);
+    margin-left: calc((100vw - 50rem)/2);
 }
+
 #block {
     position: absolute;
     bottom: 0;
@@ -121,24 +125,27 @@ a {
     color: rgb(89, 240, 119);
 }
 
-@media (min-width: 900px) {
+@media (max-width: 900px) {
     
     #button-controls {
-        visibility: hidden;
+        visibility: visible;
     }
-    #game-container {
-        width: 50rem;
-        height: 70vh;
-        position: relative;
-        border: 1px solid rgb(19, 226, 0);
-        border-style: dashed;
-        margin-left: calc((100vw - 50rem)/2);
-    }
+    
+
     .flexbox {
-        width: 50rem;
+        width: 90vw;
         align-items: baseline;
         display: flex;
-        margin-left: calc((100vw - 50rem)/2);
+        margin-left: calc((100vw - 90vw)/2);
         justify-content: space-between;
+    }
+        
+    #game-container {
+        width: 90vw;
+        height: 60vh;
+        position: relative;
+        border: 1px solid rgb(255, 255, 255);
+        border-style: dashed;
+        margin-left: calc((100vw - 90vw)/2);
     }
   }

@@ -47,7 +47,7 @@ let score = 0;
 results.textContent = `Score: ${score}`;
 
 function keyPressed(event) {
-    speed = speed - 0.3;
+    speed = speed - 0.25;
     moveBlock(event.key)
 }
 

@@ -70,7 +70,7 @@ button {
 
 #game-container {
     width: 90vw;
-    height: 60vh;
+    height: 55vh;
     position: relative;
     border: 1px solid rgb(255, 255, 255);
     border-style: dashed;
@@ -107,15 +107,21 @@ button {
 }
 
 audio {
-    visibility: hidden;
-    height: 0;
+    /* visibility: hidden; */
+    /* height: 0; */
+    margin: 1rem;
+}
+
+.audio-customization {
+    color: rgb(89, 240, 119);
+    background-color: black;
 }
 
 a {
     color: rgb(89, 240, 119);
 }
 
-@media screen and (min-width: 900px) {
+@media (min-width: 900px) {
     
     #button-controls {
         visibility: hidden;
@@ -124,7 +130,7 @@ a {
         width: 50rem;
         height: 70vh;
         position: relative;
-        border: 1px solid rgb(255, 255, 255);
+        border: 1px solid rgb(19, 226, 0);
         border-style: dashed;
         margin-left: calc((100vw - 50rem)/2);
     }

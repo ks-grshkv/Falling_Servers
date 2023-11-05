@@ -54,7 +54,7 @@ function keyPressed(event) {
 function moveBlock(direction) {
 
     if (fail_status) {return}
-    speed = speed - 0.25;
+    speed = speed - 0.29;
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
     if (direction === 'ArrowLeft' && blockLeft > 0) {
         dog_image.style.backgroundImage = 'url(./static/dog.png)';

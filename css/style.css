@@ -132,7 +132,9 @@ a {
         visibility: visible;
     }
     
-
+    * {
+        font-size: smaller;
+    }
     .flexbox {
         width: 90vw;
         align-items: baseline;
@@ -140,7 +142,8 @@ a {
         margin-left: calc((100vw - 90vw)/2);
         justify-content: space-between;
     }
-        
+
+    
     #game-container {
         width: 90vw;
         height: 60vh;

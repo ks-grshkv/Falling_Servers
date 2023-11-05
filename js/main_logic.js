@@ -11,6 +11,9 @@ const lives = document.getElementById('lives')
 const lifearray = [document.getElementById('life0'), document.getElementById('life1'), document.getElementById('life2'), document.getElementById('life3'), document.getElementById('life4')]
 var main_int;
 var tID;
+var run_direction_switch = true;
+var runInterval;
+var speed = 20;
 
 function animateScript(flag) {
     const dif = 149
@@ -44,21 +47,55 @@ let score = 0;
 results.textContent = `Score: ${score}`;
 
 function keyPressed(event) {
+    speed = speed - 0.3;
     moveBlock(event.key)
 }
-
 
 function moveBlock(direction) {
     if (fail_status) {return}
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
     if (direction === 'ArrowLeft' && blockLeft > 0) {
-        dog_image.style.backgroundImage = 'url(./static/dog.png)'
-        block.style.left = blockLeft - 25 + 'px';
+        dog_image.style.backgroundImage = 'url(./static/dog.png)';
+        // run(blockLeft, direction);
     }
     if (direction === 'ArrowRight' && blockLeft + 165 < gameContainer.clientWidth) {
-        block.style.left = blockLeft + 25 + 'px';
         dog_image.style.backgroundImage = 'url(./static/dogright.png)';
+        // run(blockLeft, direction);
     }
+
+    clearInterval(runInterval)
+    runInterval = setInterval (()=>{run(direction);}, 50)
+
+}
+
+
+function run(direction) {
+    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
+
+        console.log('run interval set', direction, blockLeft)
+        if (direction === 'ArrowLeft') { 
+            // clearInterval(runInterval);
+            console.log('direction detected -- left')
+            if (blockLeft > 0) {
+                block.style.left = blockLeft - 25 + 'px';
+                blockLeft -= 25;
+            } else {
+                clearInterval(runInterval);
+            }
+        }
+        if (direction === 'ArrowRight') {
+            console.log('direction detected -- right')
+            if (blockLeft + 165 < gameContainer.clientWidth) {
+                console.log('moving', block.style.left)
+                block.style.left = blockLeft + 25 + 'px';
+                blockLeft += 25;
+                console.log('moved', block.style.left);
+            } else {
+                clearInterval(runInterval);
+                console.log('clear')
+            }
+        }
+
 }
 
 function createCircle() {
@@ -94,8 +131,10 @@ function createCircle() {
 
                 curr_life.style.display="none"
                 fail_count++;
+                
             }
             if (fail_count > 4) {
+                clearInterval(runInterval)
                 fail_alert.style.display = "block"
                 fail_msg.style.display = "block"
                 clearInterval(tID)
@@ -104,7 +143,7 @@ function createCircle() {
             
             }
             circle.style.top = circleTop + 5 + 'px';
-            }, 20);
+            }, speed);
         }
 
         function isCircleOnBlock(circle, block) {

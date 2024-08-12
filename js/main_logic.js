@@ -169,4 +169,3 @@ if (!fail_status) {
     main_int = setInterval(createCircle, 1000);
 } else { clearInterval(main_int) }
 
-a

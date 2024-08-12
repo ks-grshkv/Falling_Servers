@@ -23,21 +23,21 @@ function animateScript(flag) {
         clearInterval(tID);
         return;
     }
-    tID = setInterval ( () => {
-    document.getElementById("dog_image").style.backgroundPosition = `-${position}px 0px`; 
+    tID = setInterval(() => {
+        document.getElementById("dog_image").style.backgroundPosition = `-${position}px 0px`;
 
-    if (anim_trigger_int < 2) {
-        if (position < 306) {
-            position = position + dif;
-        } else { 
-            position = dif;
+        if (anim_trigger_int < 2) {
+            if (position < 306) {
+                position = position + dif;
+            } else {
+                position = dif;
+            }
+        }
+        else {
+            clearInterval(tID);
         }
     }
-    else {
-        clearInterval(tID);
-    }
-    }
-    , interval ); 
+        , interval);
 }
 animateScript(!anim_trigger)
 
@@ -47,13 +47,13 @@ let score = 0;
 results.textContent = `Score: ${score}`;
 
 function keyPressed(event) {
-    
+
     moveBlock(event.key)
 }
 
 function moveBlock(direction) {
 
-    if (fail_status) {return}
+    if (fail_status) { return }
     speed = speed - 0.29;
     const blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
     if (direction === 'ArrowLeft' && blockLeft > 0) {
@@ -66,7 +66,7 @@ function moveBlock(direction) {
     }
 
     clearInterval(runInterval)
-    runInterval = setInterval (()=>{run(direction);}, 50)
+    runInterval = setInterval(() => { run(direction); }, 50)
 
 }
 
@@ -74,29 +74,29 @@ function moveBlock(direction) {
 function run(direction) {
     let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue('left'));
 
-        console.log('run interval set', direction, blockLeft)
-        if (direction === 'ArrowLeft') { 
-            // clearInterval(runInterval);
-            console.log('direction detected -- left')
-            if (blockLeft > 0) {
-                block.style.left = blockLeft - 25 + 'px';
-                blockLeft -= 25;
-            } else {
-                clearInterval(runInterval);
-            }
+    console.log('run interval set', direction, blockLeft)
+    if (direction === 'ArrowLeft') {
+        // clearInterval(runInterval);
+        console.log('direction detected -- left')
+        if (blockLeft > 0) {
+            block.style.left = blockLeft - 25 + 'px';
+            blockLeft -= 25;
+        } else {
+            clearInterval(runInterval);
         }
-        if (direction === 'ArrowRight') {
-            console.log('direction detected -- right')
-            if (blockLeft + 165 < gameContainer.clientWidth) {
-                console.log('moving', block.style.left)
-                block.style.left = blockLeft + 25 + 'px';
-                blockLeft += 25;
-                console.log('moved', block.style.left);
-            } else {
-                clearInterval(runInterval);
-                console.log('clear')
-            }
+    }
+    if (direction === 'ArrowRight') {
+        console.log('direction detected -- right')
+        if (blockLeft + 165 < gameContainer.clientWidth) {
+            console.log('moving', block.style.left)
+            block.style.left = blockLeft + 25 + 'px';
+            blockLeft += 25;
+            console.log('moved', block.style.left);
+        } else {
+            clearInterval(runInterval);
+            console.log('clear')
         }
+    }
 
 }
 
@@ -112,28 +112,28 @@ function createCircle() {
     // console.log("createCircle")
     const fallInterval = setInterval(() => {
         // console.log("fallInterval")
-        const circleTop = parseInt(window.getComputedStyle(circle).getPropertyValue('top'));      
+        const circleTop = parseInt(window.getComputedStyle(circle).getPropertyValue('top'));
         if (isCircleOnBlock(circle, block) && !fail_status) {
             // console.log(fail_status)
             score++;
             updateScore();
-        } 
+        }
 
         if (circleTop + circle.clientHeight >= gameContainer.clientHeight || isCircleOnBlock(circle, block)) {
             clearInterval(fallInterval);
             gameContainer.removeChild(circle);
         }
-        
-        if (circleTop + circle.clientHeight+5 >= gameContainer.clientHeight && !isCircleOnBlock(circle, block)){
+
+        if (circleTop + circle.clientHeight + 5 >= gameContainer.clientHeight && !isCircleOnBlock(circle, block)) {
             clearInterval(fallInterval);
             gameContainer.removeChild(circle);
 
             if (fail_count <= 4) {
                 let curr_life = lifearray[fail_count]
 
-                curr_life.style.display="none"
+                curr_life.style.display = "none"
                 fail_count++;
-                
+
             }
             if (fail_count > 4) {
                 clearInterval(runInterval)
@@ -142,30 +142,31 @@ function createCircle() {
                 clearInterval(tID)
                 fail_status = true;
             }
-            
-            }
-            circle.style.top = circleTop + 5 + 'px';
-            }, speed);
-        }
 
-        function isCircleOnBlock(circle, block) {
-            const circleRect = circle.getBoundingClientRect();
-            const blockRect = block.getBoundingClientRect();
-            return (
-                circleRect.left >= blockRect.left &&
-                circleRect.right <= blockRect.right &&
-                circleRect.bottom >= blockRect.top &&
-                circleRect.bottom <= blockRect.bottom
-            );
         }
+        circle.style.top = circleTop + 5 + 'px';
+    }, speed);
+}
 
-        function updateScore() {
-            results.textContent = `Score: ${score}`;
-        }
+function isCircleOnBlock(circle, block) {
+    const circleRect = circle.getBoundingClientRect();
+    const blockRect = block.getBoundingClientRect();
+    return (
+        circleRect.left >= blockRect.left &&
+        circleRect.right <= blockRect.right &&
+        circleRect.bottom >= blockRect.top &&
+        circleRect.bottom <= blockRect.bottom
+    );
+}
+
+function updateScore() {
+    results.textContent = `Score: ${score}`;
+}
 
 
 document.addEventListener('keydown', keyPressed);
 if (!fail_status) {
     main_int = setInterval(createCircle, 1000);
-} else {clearInterval(main_int)}
+} else { clearInterval(main_int) }
 
+a
